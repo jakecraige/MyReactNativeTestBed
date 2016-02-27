@@ -22,6 +22,7 @@ class WineList extends Component {
 
   render() {
     const {viewWine} = this.props;
+
     return (
       <ListView
         dataSource={this.state.dataSource}

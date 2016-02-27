@@ -30,7 +30,7 @@ class MyReactNativeTestBed extends Component {
   constructor(props) {
     super(props)
 
-    this.state = { selectedTab: tabNames[1] };
+    this.state = { selectedTab: tabNames[0] };
   }
 
   render() {

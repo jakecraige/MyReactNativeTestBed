@@ -1,7 +1,6 @@
 import React, {
   Component,
   Text,
-  View,
   StyleSheet,
   ScrollView,
 } from 'react-native';
@@ -14,19 +13,17 @@ class Wine extends Component {
     return (
       <ScrollView>
         <WineListItem wine={wine} />
-        <Text style={styles.description}>{wine.description}</Text>
+        <Text style={styles.description}>
+          {wine.description}
+        </Text>
       </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'stretch',
-  },
   description: {
-    padding: 5
+    padding: 5,
   }
 });
 

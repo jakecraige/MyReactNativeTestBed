@@ -37,10 +37,6 @@ class App extends Component {
             <Wine wine={route.wine} />
           </View>
         )
-      default:
-        return (
-          <View><Text>Hi</Text></View>
-        )
     }
   }
 }
