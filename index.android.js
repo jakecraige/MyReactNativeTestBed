@@ -2,12 +2,12 @@ import React, {
   AppRegistry,
   Component,
 } from 'react-native';
-import App from './components/App';
+import WineListScreen from './components/WineListScreen';
 
 class MyReactNativeTestBed extends Component {
   render() {
     return (
-      <App />
+      <WineListScreen />
     );
   }
 }
