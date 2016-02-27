@@ -3,16 +3,19 @@ import React, {
   Text,
   View,
   StyleSheet,
+  ScrollView,
 } from 'react-native';
+import WineListItem from './WineListItem';
 
 class Wine extends Component {
   render() {
     const { wine } = this.props;
 
     return (
-      <View>
-        <Text>{wine.title}</Text>
-      </View>
+      <ScrollView>
+        <WineListItem wine={wine} />
+        <Text style={styles.description}>{wine.description}</Text>
+      </ScrollView>
     );
   }
 }
@@ -22,6 +25,9 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'stretch',
   },
+  description: {
+    padding: 5
+  }
 });
 
 export default Wine;
