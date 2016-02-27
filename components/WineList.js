@@ -2,7 +2,8 @@ import React, {
   Component,
   Text,
   ListView,
-  View
+  View,
+  TouchableHighlight,
 } from 'react-native';
 import WineListItem from './WineListItem';
 
@@ -20,10 +21,17 @@ class WineList extends Component {
   }
 
   render() {
+    const {viewWine} = this.props;
     return (
       <ListView
         dataSource={this.state.dataSource}
-        renderRow={wine => <WineListItem wine={wine} key={wine.title} viewWine={this.props.viewWine} />}
+        renderRow={(wine) =>
+          <TouchableHighlight onPress={() => viewWine(wine)}>
+            <View>
+              <WineListItem wine={wine} key={wine.title} />
+            </View>
+          </TouchableHighlight>
+        }
       />
     );
   }
