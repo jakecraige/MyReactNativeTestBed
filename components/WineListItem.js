@@ -10,13 +10,15 @@ class WineListItem extends Component {
   render() {
     const wine = this.props.wine;
     return (
-      <View>
+      <View style={styles.row}>
         <Image
           source={{uri: wine.thumbnail}}
           style={styles.image}
         />
-        <Text>{wine.title}</Text>
-        <Text>{wine.reviewer}</Text>
+        <View style={styles.content}>
+          <Text style={styles.title}>{wine.title}</Text>
+          <Text>{wine.reviewer}</Text>
+        </View>
       </View>
     );
   }
@@ -25,15 +27,20 @@ class WineListItem extends Component {
 export default WineListItem;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'white',
+  row: {
+    marginBottom: 5
   },
   image: {
-    width: 200,
-    height: 150,
+    height: 150
+  },
+  content: {
+    alignItems: "center",
+    paddingTop: 4,
+    paddingBottom: 4,
+  },
+  title: {
+    fontWeight: "bold",
+    fontSize: 16,
   },
 });
 
