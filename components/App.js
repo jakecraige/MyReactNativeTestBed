@@ -5,17 +5,43 @@ import React, {
   Alert,
   View,
   StyleSheet,
+  Navigator,
 } from 'react-native';
 import wines from '../data';
 import WineList from './WineList';
+import Wine from './Wine';
 
 class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <WineList wines={wines} />
-      </View>
+      <Navigator
+        initialRoute={{name: 'Wine List', index: 0}}
+        renderScene={this.renderScene}
+      />
     );
+  }
+
+  renderScene(route, navigator) {
+    switch(route.name) {
+      case 'Wine List':
+        return (
+          <View style={styles.container}>
+            <WineList wines={wines} viewWine={wine => {
+              navigator.push({name: 'Wine', wine})
+            }} />
+          </View>
+        );
+      case 'Wine':
+        return (
+          <View style={styles.container}>
+            <Wine wine={route.wine} />
+          </View>
+        )
+      default:
+        return (
+          <View><Text>Hi</Text></View>
+        )
+    }
   }
 }
 

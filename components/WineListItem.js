@@ -4,22 +4,25 @@ import React, {
   Text,
   View,
   StyleSheet,
+  TouchableHighlight,
 } from 'react-native';
 
 class WineListItem extends Component {
   render() {
-    const wine = this.props.wine;
+    const {wine, viewWine} = this.props;
     return (
-      <View style={styles.row}>
-        <Image
-          source={{uri: wine.thumbnail}}
-          style={styles.image}
-        />
-        <View style={styles.content}>
-          <Text style={styles.title}>{wine.title}</Text>
-          <Text>{wine.reviewer}</Text>
+      <TouchableHighlight onPress={() => viewWine(wine)}>
+        <View style={styles.row}>
+          <Image
+            source={{uri: wine.thumbnail}}
+            style={styles.image}
+          />
+          <View style={styles.content}>
+            <Text style={styles.title}>{wine.title}</Text>
+            <Text>{wine.reviewer}</Text>
+          </View>
         </View>
-      </View>
+      </TouchableHighlight>
     );
   }
 }

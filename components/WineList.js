@@ -23,7 +23,7 @@ class WineList extends Component {
     return (
       <ListView
         dataSource={this.state.dataSource}
-        renderRow={wine => <WineListItem wine={wine} key={wine.title} />}
+        renderRow={wine => <WineListItem wine={wine} key={wine.title} viewWine={this.props.viewWine} />}
       />
     );
   }
